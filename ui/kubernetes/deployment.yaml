@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qc-dashboard-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qc-dashboard-ui
+  template:
+    metadata:
+      labels:
+        app: qc-dashboard-ui
+    spec:
+      containers:
+        - name: qc-dashboard-ui
+          image: qc-dashboard-ui:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
